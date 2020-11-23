@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactjsdemo
+  namespace: sample-namespace
+spec:
+  selector:
+    matchLabels:
+      app: reactjsdemo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: reactjsdemo
+    spec:
+      containers:
+      - image: gcr.io/niveusanthos/reactjsdemo:1.0.0
+        imagePullPolicy: Always
+        name: reactjsdemo
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactjsdemo
+  namespace: sample-namespace
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: reactjsdemo
