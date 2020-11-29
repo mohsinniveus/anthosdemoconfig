@@ -14,7 +14,7 @@ spec:
         app: reactjsdemo
     spec:
       containers:
-      - image: gcr.io/niveusanthos/reactjsdemo:5.0.0
+      - image: gcr.io/niveusanthos/reactjsdemo:6.0.0
         imagePullPolicy: Always
         name: reactjsdemo
         ports:
