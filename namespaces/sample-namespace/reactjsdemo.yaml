@@ -7,14 +7,14 @@ spec:
   selector:
     matchLabels:
       app: reactjsdemo
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: reactjsdemo
     spec:
       containers:
-      - image: gcr.io/niveusanthos/reactjsdemo:13.0.0
+      - image: gcr.io/niveusanthos/reactjsdemo:1.0.0
         imagePullPolicy: Always
         name: reactjsdemo
         ports:

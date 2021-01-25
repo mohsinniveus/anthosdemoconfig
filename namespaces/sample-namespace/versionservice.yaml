@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: versionservice
+  namespace: sample-namespace
+spec:
+  selector:
+      matchLabels:
+        app: versionservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: versionservice
+    spec:
+      containers:
+        - name: versionservice
+          image: gcr.io/niveusanthos/versionservice:1.0.0
+          ports:
+            - containerPort: 9090
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: versionservice
+  namespace: sample-namespace
+spec:
+  selector:
+    app: versionservice
+  ports:
+  - name: http
+    port: 9090
+    targetPort: 9090
+  type: LoadBalancer

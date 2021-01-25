@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springkubernetesdemo
+  namespace: sample-namespace
+spec:
+  selector:
+      matchLabels:
+        app: springkubernetesdemo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: springkubernetesdemo
+    spec:
+      containers:
+        - name: springkubernetesdemo
+          image: gcr.io/niveusanthos/springkubernetesdemo:1.0.0
+          ports:
+            - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: springkubernetesdemo
+  namespace: sample-namespace
+spec:
+  selector:
+    app: springkubernetesdemo
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  type: LoadBalancer
