@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: versionservice
-          image: gcr.io/niveusanthos/versionservice:1.0.0
+          image: gcr.io/niveusanthos/versionservice:3.0.0
           ports:
             - containerPort: 9090
 ---
@@ -31,4 +31,4 @@ spec:
   - name: http
     port: 9090
     targetPort: 9090
-  type: LoadBalancer
+  type: ClusterIP

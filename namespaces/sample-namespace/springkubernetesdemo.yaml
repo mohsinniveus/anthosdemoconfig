@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: springkubernetesdemo
-          image: gcr.io/niveusanthos/springkubernetesdemo:1.0.0
+          image: gcr.io/niveusanthos/springkubernetesdemo:4.0.0
           ports:
             - containerPort: 8080
 ---
@@ -31,4 +31,4 @@ spec:
   - name: http
     port: 8080
     targetPort: 8080
-  type: LoadBalancer
+  type: ClusterIP
