@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
         - name: versionservice
-          image: gcr.io/niveusanthos/versionservice-v2:1.0.0
+          image: gcr.io/niveusanthos/versionservice-v2:5.0.0
           ports:
             - containerPort: 9090
 ---
