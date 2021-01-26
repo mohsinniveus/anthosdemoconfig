@@ -1,8 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: versionservice
+  name: versionservice-v1
   namespace: sample-namespace
+  labels:
+    version: v1
 spec:
   selector:
       matchLabels:
@@ -12,12 +14,37 @@ spec:
     metadata:
       labels:
         app: versionservice
+        version: v1
     spec:
       containers:
         - name: versionservice
           image: gcr.io/niveusanthos/versionservice:3.0.0
           ports:
             - containerPort: 9090
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: versionservice-v2
+  namespace: sample-namespace
+  labels:
+    version: v2
+spec:
+  selector:
+      matchLabels:
+        app: versionservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: versionservice
+        version: v2
+    spec:
+      containers:
+        - name: versionservice
+          image: gcr.io/niveusanthos/versionservice-v2:1.0.0
+          ports:
+            - containerPort: 9080
 ---
 kind: Service
 apiVersion: v1
