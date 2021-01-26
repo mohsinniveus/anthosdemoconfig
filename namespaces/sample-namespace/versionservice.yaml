@@ -44,7 +44,7 @@ spec:
         - name: versionservice
           image: gcr.io/niveusanthos/versionservice-v2:1.0.0
           ports:
-            - containerPort: 9080
+            - containerPort: 9090
 ---
 kind: Service
 apiVersion: v1
