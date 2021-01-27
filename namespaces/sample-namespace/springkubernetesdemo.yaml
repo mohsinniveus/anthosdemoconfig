@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: springkubernetesdemo
-          image: gcr.io/niveusanthos/springkubernetesdemo:5.0.0
+          image: gcr.io/niveusanthos/springkubernetesdemo:6.0.0
           ports:
             - containerPort: 8080
 ---
