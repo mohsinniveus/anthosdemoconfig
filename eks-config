@@ -1,0 +1,27 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1ETXlNekEwTWpBd01Gb1hEVE14TURNeU1UQTBNakF3TUZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS3ByCmIyUTlVSWZIRTRuNi9nQ1NmcUhaVGtEU2QrZUFVclFhZnNJd3Mzc3h1Rm5tZUh1MlgwaHVmNGUxNmdPWFArUVEKa3Bxb2FENUgya0dBVDN5YjdVTnR5Zm5pbWU4SGRoK241S2pWSDBlQU1kdlY0a3h0WFl3eklSdkNwSFFzQzRvaApRRW42cUFiRXZ4YzVlbzQ3ZWdXUm53NEhBdCtFdUlmdVZDT3l3TFk5QkxoL1F3M3ZnVmVIZkZqOU9WQm4zR3dPCkx5Tml0Vnd3YjcwYVdCc3I1U3dnTkxsZUxsUHRQbURjNzVienR2UnFvenhITW1POGhVZTU4VWpQa2hqY2FlYUYKRThTRlNZU29yanF0QnFjN1dCemxmV3J3a0UyYUNkSWcxcTVGbXJHSE9iWVdPL2QveGpJTExZSEdaK2tWcDdJbgphWTF5WHRqOCt6WlhGWU0xYk1jQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFJQ01SM1V3MHFFaS9oYjhFVjNhMnIyaHJhZjYKUWFBdlMxc2Fjd0srL0tqY3F0QktsTS9qS3YyZjJWa3NjcEZLVExNVlBXUjhCVXZ1UDZwak5mSHV3M2M5UGlTZQpsV3BLbjgvblBwUmFVbTQ3ZXMza3g1RDF4QXQyaTVPeWtGc3BPS2dpVHdBR1RnN1BkNm90UTNtT2JEQ2Qybm5GCitnNzZGZG5VNnVtNG9LQmlDc3F0dkdlSWpxek9OamdkS2ZHNlVXVVpwVk9TbUtWdjJsbmJsRlpscEhza1Bqb2UKLzFsRkRvNjlGQ1BEYWZhZHNoYnFiNDExeTIwY0JHWmVudjk0cDVzS3lKQXZrY0xqS3FjbTB5dGJPSmVaMVVhbQpnQ0tTenpVU1FsSmVKcGJSNDgyUnhxQjhRZTJ1NUlHc20wdFVzT3ZBWjZ1dzVLdlg5MHhaQ0xUeWZ4dz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://193D33EC7E17F292F9A44A94E3D99ABE.sk1.us-west-2.eks.amazonaws.com
+  name: arn:aws:eks:us-west-2:772059020753:cluster/tns-demo-eks
+contexts:
+- context:
+    cluster: arn:aws:eks:us-west-2:772059020753:cluster/tns-demo-eks
+    user: arn:aws:eks:us-west-2:772059020753:cluster/tns-demo-eks
+  name: tns-demo-eks
+current-context: tns-demo-eks
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:us-west-2:772059020753:cluster/tns-demo-eks
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-west-2
+      - eks
+      - get-token
+      - --cluster-name
+      - tns-demo-eks
+      command: aws
